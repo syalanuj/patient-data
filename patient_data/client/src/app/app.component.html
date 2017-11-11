@@ -1,0 +1,78 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">Patient Data</a>
+        </div>
+    </div>
+</nav>
+<div class="container">
+    <div class="row">
+        <div class="col-3 text-center">
+            Provider Filter
+        </div>
+        <div class="col-sm-12 text-center">
+            <table class="table borderless`">
+                <tr>
+                    <td>Total Discharges Range:</td>
+                    <td><input class="form-control" [(ngModel)]="parameters.min_discharges" type="text" placeholder="min"></td>
+                    <td><input class="form-control" [(ngModel)]="parameters.max_discharges" type="text" placeholder="max"></td>
+                </tr>
+                <tr>
+                    <td>Average Covered Charges Rage:</td>
+                    <td><input class="form-control" [(ngModel)]="parameters.min_average_covered_charges" type="text" placeholder="min"></td>
+                    <td><input class="form-control" [(ngModel)]="parameters.max_average_covered_charges" type="text" placeholder="max"></td>
+                </tr>
+                <tr>
+                    <td>Average Medicare Payment Range:</td>
+                    <td><input class="form-control" [(ngModel)]="parameters.min_average_medicare_payments" type="text" placeholder="min"></td>
+                    <td><input class="form-control" [(ngModel)]="parameters.max_average_medicare_payments" type="text" placeholder="max"></td>
+                </tr>
+                <tr>
+                    <td>State Code</td>
+                    <td><input class="form-control" [(ngModel)]="parameters.state" type="text" placeholder="state code"></td>
+                    <td> <div class="btn btn-primary btn-block" (click)="filterProvider()" >Filter</div>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <table class="table custom-table">
+                <thead>
+                    <tr>
+                        <th>Provider Id</th>
+                        <th>Provider Name</th>
+                        <th>Provider Street Address</th>
+                        <th>Provider City</th>
+                        <th>Provider State</th>
+                        <th>Provider Zip Code</th>
+                        <th>Hospital Referral Region Description</th>
+                        <th> Total Discharges </th>
+                        <th> Average Covered Charges </th>
+                        <th> Average Total Payments </th>
+                        <th>Average Medicare Payments</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let provider of providers">
+                        <td >{{provider.provider_id}}</td>
+                        <td >{{provider.name}}</td>
+                        <td >{{provider.street_address}}</td>
+                        <td >{{provider.city}}</td>
+                        <td >{{provider.state}}</td>
+                        <td >{{provider.zip_code}}</td>
+                        <td >{{provider.hospital_referral_region_description}}</td>
+                        <td >{{provider.total_discharges}}</td>
+                        <td >{{provider.average_covered_charges}}</td>
+                        <td >{{provider.average_total_payments}}</td>
+                        <td >{{provider.average_medicare_payments}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+    </div>
+    <br/>
+</div>
+
